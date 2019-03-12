@@ -1,0 +1,665 @@
+{
+	"info": {
+		"_postman_id": "b75fa0ef-1cb6-4489-afa0-b662bac19bde",
+		"name": "Watson Speach-to-Text",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Language customization - create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Custom language model\",\n\t\"base_model_name\": {{model}}, \n\t\"description\": \"Custom language model\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - add/update corpus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/corpora/corpus?allow_overwrite=true",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"corpora",
+						"corpus"
+					],
+					"query": [
+						{
+							"key": "allow_overwrite",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - list corpora",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/corpora",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"corpora"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - delete corpus",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/corpora/corpus",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"corpora",
+						"corpus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - list words",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/words",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"words"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - delete words",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/words",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"words"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - add words",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"words\": [\n        {\n            \"word\": \"Coles\",\n            \"display_as\": \"Coles\",\n            \"sounds_like\": [\n                \"coals\"\n            ]\n        },\n        {\n            \"word\": \"Woolworths\",\n            \"display_as\": \"Woolworths\",\n            \"sounds_like\": [\n                \"wool worths\",\n                \"woolies\"\n            ]\n        }\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/words",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"words"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - train",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/train",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"train"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/reset",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Language customization - upgrade",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/customizations/{{language_customization_id}}/upgrade_model",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"customizations",
+						"{{language_customization_id}}",
+						"upgrade_model"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Custom acoustic model\",\n\t\"base_model_name\": {{model}}, \n\t\"description\": \"Custom acoustic model\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - add audio wav",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/zip"
+					},
+					{
+						"key": "Contained-Content-Type",
+						"value": "audio/wav",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/{{acoustic_customization_id}}/audio/wav",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						"{{acoustic_customization_id}}",
+						"audio",
+						"wav"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - add audio mp3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/zip"
+					},
+					{
+						"key": "Contained-Content-Type",
+						"value": "audio/mp3",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/{{acoustic_customization_id}}/audio/mp3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						"{{acoustic_customization_id}}",
+						"audio",
+						"mp3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/{{acoustic_customization_id}}/audio",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						"{{acoustic_customization_id}}",
+						"audio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - train",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/{{acoustic_customization_id}}/train?custom_language_model_id={{language_customization_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						"{{acoustic_customization_id}}",
+						"train"
+					],
+					"query": [
+						{
+							"key": "custom_language_model_id",
+							"value": "{{language_customization_id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/{{acoustic_customization_id}}//reset",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						"{{acoustic_customization_id}}",
+						"",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acoustic customization - delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/acoustic_customizations/{{acoustic_customization_id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"acoustic_customizations",
+						"{{acoustic_customization_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "apikey",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "apikey",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c4df5473-1d3c-43b0-adbc-3eb57108b92c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "28e799eb-385c-49af-af3b-dafeb9ab068d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9336db1f-9da9-4bdb-b1dc-0c046420a94b",
+			"key": "language_customization_id",
+			"value": "<language_customization_id>",
+			"type": "string"
+		},
+		{
+			"id": "18d4f7ca-85f8-4067-bbde-9add150fead3",
+			"key": "acoustic_customization_id",
+			"value": "<acoustic_customization_id>",
+			"type": "string"
+		},
+		{
+			"id": "366d9b0a-f750-4175-807d-d00ed4c200f8",
+			"key": "url",
+			"value": "https://stream.watsonplatform.net/speech-to-text/api",
+			"type": "string"
+		},
+		{
+			"id": "3f3d775a-cdbd-43e3-8af8-ec7a86a1724b",
+			"key": "model",
+			"value": "en-US_NarrowbandModel",
+			"type": "string"
+		}
+	]
+}
